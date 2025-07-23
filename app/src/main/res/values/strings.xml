@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">BackgroundChangerApp</string>
+    <string name="picture">Picture</string>
+    <string name="description_info">Info</string>
+    <string name="request_permission">This sample needs camera permission.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+    <string name="toggle_turn_on">NN:On</string>
+    <string name="toggle_turn_off">NN:Off</string>
+    <string name="toggle">Use NNAPI</string>
+    <string name="tflite">tflite</string>
+    <string name="nnapi">NNAPI</string>
+    <string name="gpu">GPU</string>
+    <string name="cpu">CPU</string>
+    <string name="filterLabel">Filters</string>
+    <string name="deviceLabel">Device</string>
+    <string name="videoBokeh">Video Bokeh</string>
+    <string name="portraitSeg">Alpha Blend</string>
+    <string name="colorTrans">Color Transfer</string>
+    <string name="renderMerge">Render Merge</string>
+</resources>

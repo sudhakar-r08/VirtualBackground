@@ -1,0 +1,81 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+}
+
+android {
+    namespace 'com.sudhakar.backgroundchangerapp'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId "com.sudhakar.backgroundchangerapp"
+        minSdk 26
+        targetSdk 36
+        versionCode 1
+        versionName "1.0"
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++17" // Or later C++ standard
+            }
+        }
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // Needed for AGSL (API 33+)
+    buildFeatures {
+        buildConfig = true // Optional, but good practice
+        shaders = true // Enable AGSL compilation
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    packagingOptions {
+        pickFirst 'lib/armeabi-v7a/libRSSupport.so'
+    }
+
+    sourceSets {
+        main {
+            // The libs directory contains prebuilt libraries that are used by the
+            // app's library defined in CMakeLists.txt via an IMPORTED target.
+            jniLibs.srcDirs = ['jni']
+        }
+    }
+    androidResources {
+        noCompress 'tflite'
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+
+}
+
+dependencies {
+
+    implementation libs.appcompat
+    implementation libs.material
+
+    // Build off of nightly TensorFlow Lite
+    implementation 'org.tensorflow:tensorflow-lite:2.5.0'
+    implementation 'org.tensorflow:tensorflow-lite-gpu:2.3.0'
+
+    //Image processing
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation project(':opencv')
+    implementation libs.core.ktx
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+    implementation("jp.co.cyberagent.android:gpuimage:2.1.0")
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
+
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+}
