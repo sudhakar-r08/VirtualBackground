@@ -19,6 +19,12 @@ A real-time virtual background Android application that uses **TensorFlow Lite**
 - 🎯 **High Performance**: Optimized for smooth 30fps processing
 - 📷 **Professional Camera**: Camera2 API with autofocus and front/rear camera support
 
+<p align="center">
+  <img src="https://github.com/sudhakar-r08/VirtualBackground/blob/master/Screenshot_20250723-204922.png?raw=true" alt="Virtual Background Screenshot 1" width="30%" />
+  <img src="https://github.com/sudhakar-r08/VirtualBackground/blob/master/Screenshot_20250723-204938.png?raw=true" alt="Virtual Background Screenshot 2" width="30%" />
+  <img src="https://github.com/sudhakar-r08/VirtualBackground/blob/master/Screenshot_20250723-204950.png?raw=true" alt="Virtual Background Screenshot 3" width="30%" />
+</p>
+
 ## 🛠️ Technical Stack
 
 ### Core Technologies
